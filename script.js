@@ -48,6 +48,8 @@ const swiperSearch = new Swiper(".search-results", {
   },
 });
 
+const swiperSearchDisplay = document.querySelector(".search-results");
+
 const fetchSearchData = async () => {
   const res = await fetch(
     `https://api.themoviedb.org/3/search/movie?query=${inputValue}&include_adult=false`,
@@ -70,6 +72,7 @@ searchInput.addEventListener("change", () => {
   inputValue = searchInput.value;
   searchInput.value = "";
   results.innerText = `Results for "${inputValue}"`;
+  swiperSearchDisplay.style.display = "block";
   fetchSearchData();
 });
 
@@ -140,7 +143,7 @@ const fetchGenreData = async () => {
 };
 
 const genreMenu = document.querySelector(".genres-menu ul");
-const genreName = document.querySelector("#genres h2");
+const genreName = document.querySelector(".genres-list");
 let genreID = 35;
 fetchGenreData();
 
