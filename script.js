@@ -20,6 +20,12 @@
 // .movie-modal-genres
 // .movie-modal-overview
 
+/* I also need you to create in your CSS :
+.hidden {
+    display: none;
+}
+*/
+
 const options = {
   method: "GET",
   headers: {
