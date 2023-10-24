@@ -20,11 +20,9 @@
 // .movie-modal-genres
 // .movie-modal-overview
 
-/* I also need you to create in your CSS :
-.hidden {
-    display: none;
-}
-*/
+//////////////////////////////
+/* What I need everywhere */
+//////////////////////////////
 
 const options = {
   method: "GET",
@@ -35,6 +33,7 @@ const options = {
   },
 };
 
+/* To get all the genre IDs, but I'm not using it after */
 const fetchGenreId = async () => {
   const res = await fetch(
     "https://api.themoviedb.org/3/genre/movie/list?language=en",
@@ -43,14 +42,16 @@ const fetchGenreId = async () => {
   const data = await res.json();
   const genres = data.genres;
   console.log(genres);
-  console.log(genres[0].id);
-  console.log(genres[0].name);
 };
-
 fetchGenreId();
 
-const swiperSlides = (swiper, poster, title, year, genres, rate) => {
+/* I'm just getting the movie-modal div */
+const movieModal = document.querySelector(".movie-modal");
+
+/* My super function that creates EVERYTHING */
+const swiperSlides = (swiper, poster, title, year, genres, rate, overview) => {
   let movieGenres = [];
+  // transform the genre IDs into names
   genres.forEach((id) => {
     if (id == 28) {
       movieGenres.push("Action");
@@ -92,12 +93,15 @@ const swiperSlides = (swiper, poster, title, year, genres, rate) => {
       movieGenres.push("Western");
     }
   });
+  //create the swiper-slides
   const slide = document.createElement("div");
   slide.classList.add("swiper-slide");
+  // if there is no poster, then we don't create the slide
   if (poster != null) {
     slide.innerHTML = `<img src="https://image.tmdb.org/t/p/original${poster}" alt="">`;
     swiper.appendChild(slide);
   }
+  // Displaying the info when the mouse enters the slide
   slide.addEventListener("mouseenter", (e) => {
     slide.innerHTML = `<div class="card-hover">
           <div class="movie-title">${title}</div>
@@ -111,17 +115,16 @@ const swiperSlides = (swiper, poster, title, year, genres, rate) => {
           </div>`;
     slide.style.background = `rgba(0, 0, 0, 0.5)`;
   });
+  // Goind back the just the poster when the mouse leaves the slide
   slide.addEventListener("mouseleave", (e) => {
     slide.innerHTML = `<img src="https://image.tmdb.org/t/p/original${poster}" alt="">`;
   });
-  slide.addEventListener("click", () => openMovieModal());
-};
-
-const movieModal = document.querySelector(".movie-modal");
-
-const openMovieModal = () => {
-  movieModal.classList.remove("hidden");
-  movieModal.innerHTML = `<div class="close-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  // displaying the popup modal for the movies when a slide is clicked
+  slide.addEventListener("click", () => {
+    // We want to see the modal now
+    movieModal.classList.remove("hidden");
+    // That's the content of the modal
+    movieModal.innerHTML = `<div class="close-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="Group 9">
 <line id="Line 2" x1="3.35355" y1="3.64645" x2="12.3536" y2="12.6464" stroke="white"/>
 <line id="Line 3" x1="3.64645" y1="12.6464" x2="12.6464" y2="3.64645" stroke="white"/>
@@ -131,29 +134,37 @@ const openMovieModal = () => {
 <div class="movie-modal-container">
     <div class="movie-modal-img"><img src="https://image.tmdb.org/t/p/original${poster}" alt=""></div>
     <div class="movie-modal-text">
-    <div class="movie-modal-title">${results.original_title}</div>
-    <div class="movie-modal-year">${results.release_date}</div>
+    <div class="movie-modal-title">${title}</div>
+    <div class="movie-modal-year">${year}</div>
     <div class="movie-modal-rate"><svg width="35" height="34" viewBox="0 0 35 34" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path id="Vector" d="M15.2599 1.64921C15.9661 -0.549736 19.0333 -0.549736 19.7372 1.64921L22.2559 9.50906C22.4098 9.98773 22.709 10.4048 23.1106 10.7007C23.5122 10.9966 23.9958 11.1561 24.4922 11.1565H32.6417C34.9227 11.1565 35.869 14.117 34.0259 15.478L27.4347 20.3343C27.0322 20.6304 26.7326 21.0482 26.5786 21.5277C26.4247 22.0072 26.4244 22.5239 26.5779 23.0035L29.0966 30.8634C29.8028 33.0623 27.3194 34.8936 25.4715 33.5327L18.8803 28.6764C18.4783 28.3803 17.9942 28.2209 17.4973 28.2209C17.0005 28.2209 16.5164 28.3803 16.1144 28.6764L9.52322 33.5327C7.67769 34.8936 5.19659 33.0623 5.90043 30.8634L8.4192 23.0035C8.57261 22.5239 8.57234 22.0072 8.41841 21.5277C8.26448 21.0482 7.9648 20.6304 7.56234 20.3343L0.973533 15.4803C-0.869639 14.1194 0.0790186 11.1589 2.35768 11.1589H10.5048C11.0016 11.159 11.4857 10.9997 11.8879 10.7038C12.29 10.4079 12.5895 9.99051 12.7435 9.51144L15.2622 1.65159L15.2599 1.64921Z" fill="#CC0000"/>
-</svg> ${results.vote_average}</div>
+</svg> ${rate}</div>
 <div class="movie-modal-genres">${movieGenres.join(" / ")}</div>
-<div class="movie-modal-overview">${results.overview}</div>
+<div class="movie-modal-overview">${overview}</div>
     </div>
     </div>`;
-
-  movieModal.querySelector(".close-btn").addEventListener("click", () => {
-    movieModal.classList.add("hidden");
+    // That's the event to close the modal when we click the cross button
+    movieModal.querySelector(".close-btn").addEventListener("click", () => {
+      // We don't want to see the modal now
+      movieModal.classList.add("hidden");
+    });
   });
 };
 
+//////////////////////////////
 /* SEARCH */
+//////////////////////////////
+
+/* Just getting everything I need in the search section */
 const searchForm = document.querySelector(".search-bar");
 const searchInput = document.querySelector("#search");
 const results = document.querySelector(".search-result h2");
 let inputValue;
 
 const searchWrapper = document.querySelector(".search-results .swiper-wrapper");
+const swiperSearchDisplay = document.querySelector(".search-results");
 
+/* Creating the search swiper */
 const swiperSearch = new Swiper(".search-results", {
   slidesPerView: 4,
   spaceBetween: 19,
@@ -164,8 +175,7 @@ const swiperSearch = new Swiper(".search-results", {
   },
 });
 
-const swiperSearchDisplay = document.querySelector(".search-results");
-
+/* The function to fetch data based on what the user typed in the search bar */
 const fetchSearchData = async () => {
   const res = await fetch(
     `https://api.themoviedb.org/3/search/movie?query=${inputValue}&include_adult=false`,
@@ -175,6 +185,7 @@ const fetchSearchData = async () => {
   const results = data.results;
   console.log(results);
   searchWrapper.innerHTML = "";
+  // Using the SUPER FUNCTION for each element in the results to create the slides and everything
   results.forEach((element) => {
     swiperSlides(
       searchWrapper,
@@ -182,24 +193,18 @@ const fetchSearchData = async () => {
       element.original_title,
       element.release_date,
       element.genre_ids,
-      element.vote_average
+      element.vote_average,
+      element.overview
     );
   });
 };
 
-// swiper, poster, title, year, genres, rate;
-
-/* const poster = `https://image.tmdb.org/t/p/original${poster_path}`;
-const title = "original_title";
-const overview = "overview";
-const vote = "vote_average";
-const year = "release_date";
-const genreID = "genre_ids"; */
-
+/* Preventing refresh by submitting the form */
 searchForm.addEventListener("submit", (event) => {
   event.preventDefault();
 });
 
+/* Getting the user input in the search bar everytime it changes */
 searchInput.addEventListener("change", () => {
   inputValue = searchInput.value;
   searchInput.value = "";
@@ -208,7 +213,10 @@ searchInput.addEventListener("change", () => {
   fetchSearchData();
 });
 
+//////////////////////////////
 /* LATEST */
+//////////////////////////////
+
 const latestWrapper = document.querySelector(
   ".latest-releases-results .swiper-wrapper"
 );
@@ -226,7 +234,7 @@ const swiperLatest = new Swiper(".latest-releases-results", {
 
 const fetchLatestData = async () => {
   const res = await fetch(
-    `https://api.themoviedb.org/3/discover/movie?include_adult=false&language=en-US&sort_by=primary_release_date.desc`,
+    `https://api.themoviedb.org/3/discover/movie?include_adult=false&primary_release_date.lte=2023-10-23&language=en-US&sort_by=popularity.desc`,
     options
   );
   const data = await res.json();
@@ -239,14 +247,18 @@ const fetchLatestData = async () => {
       element.original_title,
       element.release_date,
       element.genre_ids,
-      element.vote_average
+      element.vote_average,
+      element.overview
     );
   });
 };
 
 fetchLatestData();
 
+//////////////////////////////
 /* GENRE */
+//////////////////////////////
+
 const genreWrapper = document.querySelector(
   ".movies-by-genre-results .swiper-wrapper"
 );
@@ -276,7 +288,8 @@ const fetchGenreData = async () => {
       element.original_title,
       element.release_date,
       element.genre_ids,
-      element.vote_average
+      element.vote_average,
+      element.overview
     );
   });
 };
