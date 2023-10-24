@@ -90,6 +90,88 @@ footer .footer-container nav ul li :hover:after {
   width: 100%;
 }
 
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.card-hover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  gap: 15px;
+}
+.card-hover .movie-title {
+  font-size: 20px;
+}
+.card-hover .movie-genres {
+  font-size: 14px;
+  font-weight: 500;
+}
+.card-hover .movie-rate {
+  font-size: 32px;
+  color: #cc0000;
+}
+
+.card-hover * {
+  margin: 5px;
+  display: block !important;
+  text-align: center;
+  font-weight: 700;
+}
+
+.movie-modal.hidden {
+  display: none;
+}
+.movie-modal .movie-modal-container {
+  position: relative;
+  border: 2px solid red;
+  display: flex;
+  flex-grow: 1;
+  width: 752px;
+  height: 526px;
+  padding: 70px;
+  gap: 50px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.5);
+}
+.movie-modal .movie-modal-container .movie-modal-img {
+  height: 100%;
+  border: 2px solid red;
+  width: 234px;
+  height: 351px;
+}
+.movie-modal .movie-modal-container .movie-modal-img img {
+  width: 100%;
+}
+.movie-modal .movie-modal-container .movie-modal-text {
+  height: 100%;
+  width: 292px;
+  border: 2px solid red;
+  flex-grow: 1;
+}
+.movie-modal .movie-modal-container .movie-modal-text * {
+  margin-bottom: 10px;
+}
+.movie-modal .movie-modal-container .movie-modal-text .movie-modal-title {
+  color: red;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.movie-modal .movie-modal-container .movie-modal-text .movie-modal-genres {
+  text-transform: uppercase;
+}
+.movie-modal .movie-modal-container .movie-modal-text .movie-modal-overview {
+  margin-bottom: 10px;
+}
+.movie-modal .movie-modal-container .close-btn {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -138,8 +220,6 @@ h2 {
 .content-wrapper .search-bar button {
   box-shadow: 0 0 6px rgba(105, 126, 155, 0.2);
   border: none;
-  font-size: 18px;
-  padding: 10px 20px;
 }
 .content-wrapper .search-bar input {
   width: 272px;
@@ -147,6 +227,8 @@ h2 {
   outline-style: none;
   border-top-left-radius: 7px;
   border-bottom-left-radius: 7px;
+  font-size: 18px;
+  padding: 10px 20px;
 }
 .content-wrapper .search-bar input:focus::-moz-placeholder {
   color: rgba(52, 63, 77, 0.5);
@@ -163,6 +245,8 @@ h2 {
   cursor: pointer;
   border-top-right-radius: 7px;
   border-bottom-right-radius: 7px;
+  font-size: 28px;
+  padding: 8px 10px;
 }
 .content-wrapper .search-bar button:hover {
   background-color: #cc0000;
