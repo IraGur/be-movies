@@ -21,13 +21,99 @@ const fetchGenreId = async () => {
 
 fetchGenreId();
 
-const swiperSlides = (swiper, poster) => {
+const swiperSlides = (swiper, poster, title, year, genres, rate) => {
+  let movieGenres = [];
+  genres.forEach((id) => {
+    if (id == 28) {
+      movieGenres.push("Action");
+    } else if (id == 12) {
+      movieGenres.push("Adventure");
+    } else if (id == 16) {
+      movieGenres.push("Animation");
+    } else if (id == 35) {
+      movieGenres.push("Comedy");
+    } else if (id == 80) {
+      movieGenres.push("Crime");
+    } else if (id == 99) {
+      movieGenres.push("Documentary");
+    } else if (id == 18) {
+      movieGenres.push("Drama");
+    } else if (id == 10751) {
+      movieGenres.push("Family");
+    } else if (id == 14) {
+      movieGenres.push("Fantasy");
+    } else if (id == 36) {
+      movieGenres.push("History");
+    } else if (id == 27) {
+      movieGenres.push("Horror");
+    } else if (id == 10402) {
+      movieGenres.push("Music");
+    } else if (id == 9648) {
+      movieGenres.push("Mystery");
+    } else if (id == 10749) {
+      movieGenres.push("Romance");
+    } else if (id == 878) {
+      movieGenres.push("Science Fiction");
+    } else if (id == 10770) {
+      movieGenres.push("TV Movie");
+    } else if (id == 53) {
+      movieGenres.push("Thriller");
+    } else if (id == 10752) {
+      movieGenres.push("War");
+    } else if (id == 37) {
+      movieGenres.push("Western");
+    }
+  });
   const slide = document.createElement("div");
   slide.classList.add("swiper-slide");
   if (poster != null) {
     slide.innerHTML = `<img src="https://image.tmdb.org/t/p/original${poster}" alt="">`;
     swiper.appendChild(slide);
   }
+  slide.addEventListener("mouseenter", (e) => {
+    slide.innerHTML = `<div class="card-hover">
+          <div class="movie-title">${title}</div>
+          <div class="movie-year">${year}</div>
+          <div class="movie-genres">${movieGenres.join(" / ")}</div>
+          <div class="star"><svg width="35" height="34" viewBox="0 0 35 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path id="Vector" d="M15.2599 1.64921C15.9661 -0.549736 19.0333 -0.549736 19.7372 1.64921L22.2559 9.50906C22.4098 9.98773 22.709 10.4048 23.1106 10.7007C23.5122 10.9966 23.9958 11.1561 24.4922 11.1565H32.6417C34.9227 11.1565 35.869 14.117 34.0259 15.478L27.4347 20.3343C27.0322 20.6304 26.7326 21.0482 26.5786 21.5277C26.4247 22.0072 26.4244 22.5239 26.5779 23.0035L29.0966 30.8634C29.8028 33.0623 27.3194 34.8936 25.4715 33.5327L18.8803 28.6764C18.4783 28.3803 17.9942 28.2209 17.4973 28.2209C17.0005 28.2209 16.5164 28.3803 16.1144 28.6764L9.52322 33.5327C7.67769 34.8936 5.19659 33.0623 5.90043 30.8634L8.4192 23.0035C8.57261 22.5239 8.57234 22.0072 8.41841 21.5277C8.26448 21.0482 7.9648 20.6304 7.56234 20.3343L0.973533 15.4803C-0.869639 14.1194 0.0790186 11.1589 2.35768 11.1589H10.5048C11.0016 11.159 11.4857 10.9997 11.8879 10.7038C12.29 10.4079 12.5895 9.99051 12.7435 9.51144L15.2622 1.65159L15.2599 1.64921Z" fill="#CC0000"/>
+</svg>
+</div>
+          <div class="movie-rate">${rate}</div>
+          </div>`;
+    slide.style.background = `rgba(0, 0, 0, 0.5)`;
+  });
+  slide.addEventListener("mouseleave", (e) => {
+    slide.innerHTML = `<img src="https://image.tmdb.org/t/p/original${poster}" alt="">`;
+  });
+  slide.addEventListener("click", () => openMovieModal());
+};
+
+const movieModal = document.querySelector(".movie-modal");
+
+const openMovieModal = () => {
+  movieModal.classList.remove("hidden");
+  movieModal.innerHTML = `<div class="close-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 9">
+<line id="Line 2" x1="3.35355" y1="3.64645" x2="12.3536" y2="12.6464" stroke="white"/>
+<line id="Line 3" x1="3.64645" y1="12.6464" x2="12.6464" y2="3.64645" stroke="white"/>
+<circle id="Ellipse 1" cx="8" cy="8" r="7.5" stroke="white"/>
+</g>
+</svg></div>
+    <div class="movie-modal-img"><img src="https://image.tmdb.org/t/p/original${poster}" alt=""></div>
+    <div class="movie-modal-text">
+    <div class="movie-modal-title">${results.original_title}</div>
+    <div class="movie-modal-year">${results.release_date}</div>
+    <div class="movie-modal-rate"><svg width="35" height="34" viewBox="0 0 35 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path id="Vector" d="M15.2599 1.64921C15.9661 -0.549736 19.0333 -0.549736 19.7372 1.64921L22.2559 9.50906C22.4098 9.98773 22.709 10.4048 23.1106 10.7007C23.5122 10.9966 23.9958 11.1561 24.4922 11.1565H32.6417C34.9227 11.1565 35.869 14.117 34.0259 15.478L27.4347 20.3343C27.0322 20.6304 26.7326 21.0482 26.5786 21.5277C26.4247 22.0072 26.4244 22.5239 26.5779 23.0035L29.0966 30.8634C29.8028 33.0623 27.3194 34.8936 25.4715 33.5327L18.8803 28.6764C18.4783 28.3803 17.9942 28.2209 17.4973 28.2209C17.0005 28.2209 16.5164 28.3803 16.1144 28.6764L9.52322 33.5327C7.67769 34.8936 5.19659 33.0623 5.90043 30.8634L8.4192 23.0035C8.57261 22.5239 8.57234 22.0072 8.41841 21.5277C8.26448 21.0482 7.9648 20.6304 7.56234 20.3343L0.973533 15.4803C-0.869639 14.1194 0.0790186 11.1589 2.35768 11.1589H10.5048C11.0016 11.159 11.4857 10.9997 11.8879 10.7038C12.29 10.4079 12.5895 9.99051 12.7435 9.51144L15.2622 1.65159L15.2599 1.64921Z" fill="#CC0000"/>
+</svg> ${results.vote_average}</div>
+<div class="movie-modal-genres">${movieGenres.join(" / ")}</div>
+<div class="movie-modal-overview">${results.overview}</div>
+    </div>`;
+
+  movieModal.querySelector(".close-btn").addEventListener("click", () => {
+    movieModal.classList.add("hidden");
+  });
 };
 
 /* SEARCH */
@@ -60,9 +146,25 @@ const fetchSearchData = async () => {
   console.log(results);
   searchWrapper.innerHTML = "";
   results.forEach((element) => {
-    swiperSlides(searchWrapper, element.poster_path);
+    swiperSlides(
+      searchWrapper,
+      element.poster_path,
+      element.original_title,
+      element.release_date,
+      element.genre_ids,
+      element.vote_average
+    );
   });
 };
+
+// swiper, poster, title, year, genres, rate;
+
+/* const poster = `https://image.tmdb.org/t/p/original${poster_path}`;
+const title = "original_title";
+const overview = "overview";
+const vote = "vote_average";
+const year = "release_date";
+const genreID = "genre_ids"; */
 
 searchForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -75,13 +177,6 @@ searchInput.addEventListener("change", () => {
   swiperSearchDisplay.style.display = "block";
   fetchSearchData();
 });
-
-/* const poster = `https://image.tmdb.org/t/p/original${poster_path}`;
-const title = "original_title";
-const overview = "overview";
-const vote = "vote_average";
-const year = "release_date";
-const genreID = "genre_ids"; */
 
 /* LATEST */
 const latestWrapper = document.querySelector(
@@ -108,7 +203,14 @@ const fetchLatestData = async () => {
   const results = data.results;
   console.log(results);
   results.forEach((element) => {
-    swiperSlides(latestWrapper, element.poster_path);
+    swiperSlides(
+      latestWrapper,
+      element.poster_path,
+      element.original_title,
+      element.release_date,
+      element.genre_ids,
+      element.vote_average
+    );
   });
 };
 
@@ -138,7 +240,14 @@ const fetchGenreData = async () => {
   const results = data.results;
   console.log(results);
   results.forEach((element) => {
-    swiperSlides(genreWrapper, element.poster_path);
+    swiperSlides(
+      genreWrapper,
+      element.poster_path,
+      element.original_title,
+      element.release_date,
+      element.genre_ids,
+      element.vote_average
+    );
   });
 };
 
