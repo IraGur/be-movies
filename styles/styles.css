@@ -114,6 +114,10 @@ h2 {
   line-height: 19.36px;
 }
 
+.hidden {
+  display: none;
+}
+
 .content-wrapper {
   min-height: calc(100vh - 200px);
   justify-content: space-between;
