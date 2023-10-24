@@ -1,3 +1,25 @@
+/* I created classes for the hover on the slides and for the popup modal that appear when you click on a slide */
+
+///// For hover on the slides : (it just needs some css styling)
+// .card-hover (the big container for all the other classes below)
+// .movie-title
+// .movie-year
+// .movie-genres
+// .star (i don't think it needs styling)
+// .movie-rate
+
+////// For the movie popup modal :
+// .movie-modal (you need to create an empty div with this class in your HTML, I'm putting everything inside with JS)
+// .close-btn (for the close button)
+// .movie-modal-container (this is a div I put after the .close-btn and it's divided into two other div so that you can display in flex or grid)
+// .movie-modal-img (the first sub-div where the poster is)
+// .movie-modal-text (the second sub-div where I've put all the text inside the div that are written below)
+// .movie-modal-title
+// .movie-modal-year
+// .movie-modal-rate
+// .movie-modal-genres
+// .movie-modal-overview
+
 const options = {
   method: "GET",
   headers: {
@@ -100,6 +122,7 @@ const openMovieModal = () => {
 <circle id="Ellipse 1" cx="8" cy="8" r="7.5" stroke="white"/>
 </g>
 </svg></div>
+<div class="movie-modal-container">
     <div class="movie-modal-img"><img src="https://image.tmdb.org/t/p/original${poster}" alt=""></div>
     <div class="movie-modal-text">
     <div class="movie-modal-title">${results.original_title}</div>
@@ -109,6 +132,7 @@ const openMovieModal = () => {
 </svg> ${results.vote_average}</div>
 <div class="movie-modal-genres">${movieGenres.join(" / ")}</div>
 <div class="movie-modal-overview">${results.overview}</div>
+    </div>
     </div>`;
 
   movieModal.querySelector(".close-btn").addEventListener("click", () => {
