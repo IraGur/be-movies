@@ -85,6 +85,8 @@ footer .footer-container nav ul li :hover:after {
   height: 351px;
 }
 .swiper .swiper-slide img {
+  -o-object-fit: contain;
+     object-fit: contain;
   width: 100%;
 }
 
