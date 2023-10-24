@@ -170,8 +170,8 @@ const swiperSearch = new Swiper(".search-results", {
   spaceBetween: 19,
 
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: ".search-button-next",
+    prevEl: ".search-button-prev",
   },
 });
 
@@ -227,8 +227,8 @@ const swiperLatest = new Swiper(".latest-releases-results", {
   spaceBetween: 19,
 
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: ".latest-button-next",
+    prevEl: ".latest-button-prev",
   },
 });
 
@@ -268,8 +268,8 @@ const swiperGenre = new Swiper(".movies-by-genre-results", {
   spaceBetween: 19,
 
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: ".genres-button-next",
+    prevEl: ".genres-button-prev",
   },
 });
 
