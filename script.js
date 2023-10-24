@@ -145,6 +145,7 @@ const fetchGenreData = async () => {
 const genreMenu = document.querySelector(".genres-menu ul");
 const genreName = document.querySelector(".genres-list");
 let genreID = 35;
+genreWrapper.innerHTML = "";
 fetchGenreData();
 
 genreMenu.addEventListener("click", (e) => {
