@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BE Movie</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+    <!--HEADER-->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="#">
+                    <span>be</span>movie
+                </a>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#search">search</a></li>
+                    <li><a href="#latest">latest</a></li>
+                    <li><a href="#genres">genres</a></li>
+                    <li><a href="#">register</a></li>
+                    <li><a href="#">sign in</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!--MAIN-->
+    <div class="content-wrapper">
+        <!--SEARCH-->
+        <div class="search-result section">
+            <form class="search-bar" id="submit">
+                <input type="text" id="search" placeholder="Search for movies" />
+                <button type="submit" class="search-btn" onclick="onSearchClick(event)">
+                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </button>
+            </form>
+            <h2></h2>
+            <div class="search-results swiper">
+                <div class="swiper-wrapper"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+
+        <!--LATEST-->
+        <div class="latest-release section" id="latest">
+            <h2>Latest releases</h2>
+            <div class="latest-releases-results swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">Slide 1</div>
+                    <div class="swiper-slide">Slide 2</div>
+                    <div class="swiper-slide">Slide 3</div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+
+        <!--GENRES-->
+        <div class="movies-by-genre section" id="genres">
+            <div class="genres-heading">
+                <h2>Movies by genre</h2>
+                <div class="genres-menu">
+                    <ul>
+                        <li><a href="#">Comedy</a></li>
+                        <li><a href="#">Drama</a></li>
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Romance</a></li>
+                        <li><a href="#">Fantasy</a></li>
+                        <li><a href="#">Animation</a></li>
+                    </ul>
+                </div>
+            </div>
+            <h2>Comedy</h2>
+            <div class="movies-by-genre-results swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">Slide 1</div>
+                    <div class="swiper-slide">Slide 2</div>
+                    <div class="swiper-slide">Slide 3</div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--FOOTER-->
+    <footer>
+        <div class="footer-container">
+            <div class="logo"><span>be</span>movie</div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#search">search</a></li>
+                    <li><a href="#latest">latest</a></li>
+                    <li><a href="#genres">genres</a></li>
+                    <li><a href="#">register</a></li>
+                    <li><a href="#">sign in</a></li>
+                </ul>
+            </nav>
+            <div class="copyrights">@2023 - All rights reserved</div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
