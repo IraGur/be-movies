@@ -47,6 +47,7 @@ fetchGenreId();
 
 /* I'm just getting the movie-modal div */
 const movieModal = document.querySelector(".movie-modal");
+const movieWraper = document.querySelector(".modal-wraper");
 
 /* My super function that creates EVERYTHING */
 const swiperSlides = (swiper, poster, title, year, genres, rate, overview) => {
@@ -123,7 +124,7 @@ const swiperSlides = (swiper, poster, title, year, genres, rate, overview) => {
   // displaying the popup modal for the movies when a slide is clicked
   slide.addEventListener("click", () => {
     // We want to see the modal now
-    movieModal.classList.remove("hidden");
+    movieWraper.classList.remove("hidden");
     // That's the content of the modal
     movieModal.innerHTML = `<div class="close-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="Group 9">
@@ -147,7 +148,7 @@ const swiperSlides = (swiper, poster, title, year, genres, rate, overview) => {
     // That's the event to close the modal when we click the cross button
     movieModal.querySelector(".close-btn").addEventListener("click", () => {
       // We don't want to see the modal now
-      movieModal.classList.add("hidden");
+      movieWraper.classList.add("hidden");
     });
   });
 };
