@@ -103,6 +103,7 @@ const swiperSlides = (swiper, poster, title, year, genres, rate, overview) => {
   }
   // Displaying the info when the mouse enters the slide
   slide.addEventListener("mouseenter", (e) => {
+    slide.innerHTML = "";
     slide.innerHTML = `<div class="card-hover">
           <div class="movie-title">${title}</div>
           <div class="movie-year">${year}</div>
