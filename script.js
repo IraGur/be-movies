@@ -25,23 +25,23 @@
 //////////////////////////////
 
 const options = {
-   method: "GET",
-   headers: {
-      accept: "application/json",
-      Authorization:
-         "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZThiYjVkMGVlMzU5MzUwNzUxZmE4OWJmMjU5ODA1YiIsInN1YiI6IjY1MzI3ZDZhOGQyMmZjMDEwYjcxZWQ1MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.abe8vhYOLyjjs1DdAeWtflxYzFNlkEpqai_DKaOU5zU",
-   },
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZThiYjVkMGVlMzU5MzUwNzUxZmE4OWJmMjU5ODA1YiIsInN1YiI6IjY1MzI3ZDZhOGQyMmZjMDEwYjcxZWQ1MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.abe8vhYOLyjjs1DdAeWtflxYzFNlkEpqai_DKaOU5zU",
+  },
 };
 
 /* To get all the genre IDs, but I'm not using it after */
 const fetchGenreId = async () => {
-   const res = await fetch(
-      "https://api.themoviedb.org/3/genre/movie/list?language=en",
-      options
-   );
-   const data = await res.json();
-   const genres = data.genres;
-   console.log(genres);
+  const res = await fetch(
+    "https://api.themoviedb.org/3/genre/movie/list?language=en",
+    options
+  );
+  const data = await res.json();
+  const genres = data.genres;
+  console.log(genres);
 };
 fetchGenreId();
 
@@ -50,60 +50,60 @@ const movieModal = document.querySelector(".movie-modal");
 
 /* My super function that creates EVERYTHING */
 const swiperSlides = (swiper, poster, title, year, genres, rate, overview) => {
-   let movieGenres = [];
-   // transform the genre IDs into names
-   genres.forEach((id) => {
-      if (id == 28) {
-         movieGenres.push("Action");
-      } else if (id == 12) {
-         movieGenres.push("Adventure");
-      } else if (id == 16) {
-         movieGenres.push("Animation");
-      } else if (id == 35) {
-         movieGenres.push("Comedy");
-      } else if (id == 80) {
-         movieGenres.push("Crime");
-      } else if (id == 99) {
-         movieGenres.push("Documentary");
-      } else if (id == 18) {
-         movieGenres.push("Drama");
-      } else if (id == 10751) {
-         movieGenres.push("Family");
-      } else if (id == 14) {
-         movieGenres.push("Fantasy");
-      } else if (id == 36) {
-         movieGenres.push("History");
-      } else if (id == 27) {
-         movieGenres.push("Horror");
-      } else if (id == 10402) {
-         movieGenres.push("Music");
-      } else if (id == 9648) {
-         movieGenres.push("Mystery");
-      } else if (id == 10749) {
-         movieGenres.push("Romance");
-      } else if (id == 878) {
-         movieGenres.push("Science Fiction");
-      } else if (id == 10770) {
-         movieGenres.push("TV Movie");
-      } else if (id == 53) {
-         movieGenres.push("Thriller");
-      } else if (id == 10752) {
-         movieGenres.push("War");
-      } else if (id == 37) {
-         movieGenres.push("Western");
-      }
-   });
-   //create the swiper-slides
-   const slide = document.createElement("div");
-   slide.classList.add("swiper-slide");
-   // if there is no poster, then we don't create the slide
-   if (poster != null) {
-      slide.innerHTML = `<img src="https://image.tmdb.org/t/p/original${poster}" alt="">`;
-      swiper.appendChild(slide);
-   }
-   // Displaying the info when the mouse enters the slide
-   slide.addEventListener("mouseenter", (e) => {
-      slide.innerHTML = `<div class="card-hover">
+  let movieGenres = [];
+  // transform the genre IDs into names
+  genres.forEach((id) => {
+    if (id == 28) {
+      movieGenres.push("Action");
+    } else if (id == 12) {
+      movieGenres.push("Adventure");
+    } else if (id == 16) {
+      movieGenres.push("Animation");
+    } else if (id == 35) {
+      movieGenres.push("Comedy");
+    } else if (id == 80) {
+      movieGenres.push("Crime");
+    } else if (id == 99) {
+      movieGenres.push("Documentary");
+    } else if (id == 18) {
+      movieGenres.push("Drama");
+    } else if (id == 10751) {
+      movieGenres.push("Family");
+    } else if (id == 14) {
+      movieGenres.push("Fantasy");
+    } else if (id == 36) {
+      movieGenres.push("History");
+    } else if (id == 27) {
+      movieGenres.push("Horror");
+    } else if (id == 10402) {
+      movieGenres.push("Music");
+    } else if (id == 9648) {
+      movieGenres.push("Mystery");
+    } else if (id == 10749) {
+      movieGenres.push("Romance");
+    } else if (id == 878) {
+      movieGenres.push("Science Fiction");
+    } else if (id == 10770) {
+      movieGenres.push("TV Movie");
+    } else if (id == 53) {
+      movieGenres.push("Thriller");
+    } else if (id == 10752) {
+      movieGenres.push("War");
+    } else if (id == 37) {
+      movieGenres.push("Western");
+    }
+  });
+  //create the swiper-slides
+  const slide = document.createElement("div");
+  slide.classList.add("swiper-slide");
+  // if there is no poster, then we don't create the slide
+  if (poster != null) {
+    slide.innerHTML = `<img src="https://image.tmdb.org/t/p/original${poster}" alt="">`;
+    swiper.appendChild(slide);
+  }
+  // Displaying the info when the mouse enters the slide
+  slide.addEventListener("mouseenter", (e) => {
+    slide.innerHTML = `<div class="card-hover">
           <div class="movie-title">${title}</div>
           <div class="movie-year">${year}</div>
           <div class="movie-genres">${movieGenres.join(" / ")}</div>
@@ -113,18 +113,18 @@ const swiperSlides = (swiper, poster, title, year, genres, rate, overview) => {
 </div>
           <div class="movie-rate">${rate}</div>
           </div>`;
-      slide.style.background = `rgba(0, 0, 0, 0.5)`;
-   });
-   // Goind back the just the poster when the mouse leaves the slide
-   slide.addEventListener("mouseleave", (e) => {
-      slide.innerHTML = `<img src="https://image.tmdb.org/t/p/original${poster}" alt="">`;
-   });
-   // displaying the popup modal for the movies when a slide is clicked
-   slide.addEventListener("click", () => {
-      // We want to see the modal now
-      movieModal.classList.remove("hidden");
-      // That's the content of the modal
-      movieModal.innerHTML = `<div class="close-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    slide.style.background = `rgba(0, 0, 0, 0.5)`;
+  });
+  // Goind back the just the poster when the mouse leaves the slide
+  slide.addEventListener("mouseleave", (e) => {
+    slide.innerHTML = `<img src="https://image.tmdb.org/t/p/original${poster}" alt="">`;
+  });
+  // displaying the popup modal for the movies when a slide is clicked
+  slide.addEventListener("click", () => {
+    // We want to see the modal now
+    movieModal.classList.remove("hidden");
+    // That's the content of the modal
+    movieModal.innerHTML = `<div class="close-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="Group 9">
 <line id="Line 2" x1="3.35355" y1="3.64645" x2="12.3536" y2="12.6464" stroke="white"/>
 <line id="Line 3" x1="3.64645" y1="12.6464" x2="12.6464" y2="3.64645" stroke="white"/>
@@ -143,12 +143,12 @@ const swiperSlides = (swiper, poster, title, year, genres, rate, overview) => {
 <div class="movie-modal-overview">${overview}</div>
     </div>
     </div>`;
-      // That's the event to close the modal when we click the cross button
-      movieModal.querySelector(".close-btn").addEventListener("click", () => {
-         // We don't want to see the modal now
-         movieModal.classList.add("hidden");
-      });
-   });
+    // That's the event to close the modal when we click the cross button
+    movieModal.querySelector(".close-btn").addEventListener("click", () => {
+      // We don't want to see the modal now
+      movieModal.classList.add("hidden");
+    });
+  });
 };
 
 //////////////////////////////
@@ -166,160 +166,170 @@ const swiperSearchDisplay = document.querySelector(".search-results");
 
 /* Creating the search swiper */
 const swiperSearch = new Swiper(".search-results", {
-   slidesPerView: 4,
-   spaceBetween: 19,
+  slidesPerView: 4,
+  spaceBetween: 19,
 
-   navigation: {
-      nextEl: ".search-button-next",
-      prevEl: ".search-button-prev",
-   },
+  navigation: {
+    nextEl: ".search-button-next",
+    prevEl: ".search-button-prev",
+  },
 });
 
 /* The function to fetch data based on what the user typed in the search bar */
 const fetchSearchData = async () => {
-   const res = await fetch(
-      `https://api.themoviedb.org/3/search/movie?query=${inputValue}&include_adult=false`,
-      options
-   );
-   const data = await res.json();
-   const results = data.results;
-   console.log(results);
-   searchWrapper.innerHTML = "";
-   // Using the SUPER FUNCTION for each element in the results to create the slides and everything
-   results.forEach((element) => {
-      swiperSlides(
-         searchWrapper,
-         element.poster_path,
-         element.original_title,
-         element.release_date,
-         element.genre_ids,
-         element.vote_average,
-         element.overview
-      );
-   });
+  const res = await fetch(
+    `https://api.themoviedb.org/3/search/movie?query=${inputValue}&include_adult=false`,
+    options
+  );
+  const data = await res.json();
+  const results = data.results;
+  console.log(results);
+  searchWrapper.innerHTML = "";
+  // Using the SUPER FUNCTION for each element in the results to create the slides and everything
+  results.forEach((element) => {
+    swiperSlides(
+      searchWrapper,
+      element.poster_path,
+      element.original_title,
+      element.release_date,
+      element.genre_ids,
+      element.vote_average,
+      element.overview
+    );
+  });
 };
 
 /* Preventing refresh by submitting the form */
 searchForm.addEventListener("submit", (event) => {
-   event.preventDefault();
+  event.preventDefault();
 });
 
 /* Getting the user input in the search bar everytime it changes */
 searchInput.addEventListener("change", () => {
-   inputValue = searchInput.value;
-   searchInput.value = "";
-   results.innerText = `Results for "${inputValue}"`;
-   swiperSearchDisplay.style.display = "block";
-   fetchSearchData();
+  inputValue = searchInput.value;
+  searchInput.value = "";
+  results.innerText = `Results for "${inputValue}"`;
+  swiperSearchDisplay.style.display = "block";
+  fetchSearchData();
 });
 
 //////////////////////////////
 /* LATEST */
 //////////////////////////////
 
+/* Getting everything I need for the latest section */
 const latestWrapper = document.querySelector(
-   ".latest-releases-results .swiper-wrapper"
+  ".latest-releases-results .swiper-wrapper"
 );
 latestWrapper.innerHTML = "";
 
+/* Creating the latest swiper */
 const swiperLatest = new Swiper(".latest-releases-results", {
-   slidesPerView: 4,
-   spaceBetween: 19,
+  slidesPerView: 4,
+  spaceBetween: 19,
 
-   navigation: {
-      nextEl: ".latest-button-next",
-      prevEl: ".latest-button-prev",
-   },
+  navigation: {
+    nextEl: ".latest-button-next",
+    prevEl: ".latest-button-prev",
+  },
 });
 
+/* The function to fetch the data from the latest movies */
 const fetchLatestData = async () => {
-   const res = await fetch(
-      `https://api.themoviedb.org/3/discover/movie?include_adult=false&primary_release_date.lte=2023-10-23&language=en-US&sort_by=popularity.desc`,
-      options
-   );
-   const data = await res.json();
-   const results = data.results;
-   console.log(results);
-   results.forEach((element) => {
-      swiperSlides(
-         latestWrapper,
-         element.poster_path,
-         element.original_title,
-         element.release_date,
-         element.genre_ids,
-         element.vote_average,
-         element.overview
-      );
-   });
+  const res = await fetch(
+    `https://api.themoviedb.org/3/discover/movie?include_adult=false&primary_release_date.lte=2023-10-23&language=en-US&sort_by=popularity.desc`,
+    options
+  );
+  const data = await res.json();
+  const results = data.results;
+  console.log(results);
+  results.forEach((element) => {
+    swiperSlides(
+      latestWrapper,
+      element.poster_path,
+      element.original_title,
+      element.release_date,
+      element.genre_ids,
+      element.vote_average,
+      element.overview
+    );
+  });
 };
 
+/* Calling the function because I want it to be here when we launch the page */
 fetchLatestData();
 
 //////////////////////////////
 /* GENRE */
 //////////////////////////////
 
+/* Getting everything I need from the genre section */
 const genreWrapper = document.querySelector(
-   ".movies-by-genre-results .swiper-wrapper"
+  ".movies-by-genre-results .swiper-wrapper"
 );
-
-const swiperGenre = new Swiper(".movies-by-genre-results", {
-   slidesPerView: 4,
-   spaceBetween: 19,
-
-   navigation: {
-      nextEl: ".genres-button-next",
-      prevEl: ".genres-button-prev",
-   },
-});
-
-const fetchGenreData = async () => {
-   const res = await fetch(
-      `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genreID}`,
-      options
-   );
-   const data = await res.json();
-   const results = data.results;
-   console.log(results);
-   results.forEach((element) => {
-      swiperSlides(
-         genreWrapper,
-         element.poster_path,
-         element.original_title,
-         element.release_date,
-         element.genre_ids,
-         element.vote_average,
-         element.overview
-      );
-   });
-};
-
 const genreMenu = document.querySelector(".genres-menu ul");
 const genreName = document.querySelector(".genres-list");
+// that's the Comedy id
 let genreID = 35;
 genreWrapper.innerHTML = "";
+
+/* Creating the genre swiper */
+const swiperGenre = new Swiper(".movies-by-genre-results", {
+  slidesPerView: 4,
+  spaceBetween: 19,
+
+  navigation: {
+    nextEl: ".genres-button-next",
+    prevEl: ".genres-button-prev",
+  },
+});
+
+/* The function to fetch the data depending on the genre id */
+const fetchGenreData = async () => {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genreID}`,
+    options
+  );
+  const data = await res.json();
+  const results = data.results;
+  console.log(results);
+  results.forEach((element) => {
+    swiperSlides(
+      genreWrapper,
+      element.poster_path,
+      element.original_title,
+      element.release_date,
+      element.genre_ids,
+      element.vote_average,
+      element.overview
+    );
+  });
+};
+
+/* Calling the function with the Comedy genre ID because I want it by default */
 fetchGenreData();
 
+/* The condition depending on the genre ID when we click on the different genre buttons with the function called at the end */
 genreMenu.addEventListener("click", (e) => {
-   genreWrapper.innerHTML = "";
-   if (e.target.innerText == "Comedy") {
-      genreID = 35;
-      genreName.innerText = "Comedy";
-   } else if (e.target.innerText == "Drama") {
-      genreID = 18;
-      genreName.innerText = "Drama";
-   } else if (e.target.innerText == "Action") {
-      genreID = 28;
-      genreName.innerText = "Action";
-   } else if (e.target.innerText == "Romance") {
-      genreID = 10749;
-      genreName.innerText = "Romance";
-   } else if (e.target.innerText == "Fantasy") {
-      genreID = 14;
-      genreName.innerText = "Fantasy";
-   } else if (e.target.innerText == "Animation") {
-      genreID = 16;
-      genreName.innerText = "Animation";
-   }
-   fetchGenreData();
+  genreWrapper.innerHTML = "";
+  if (e.target.innerText == "Comedy") {
+    genreID = 35;
+    genreName.innerText = "Comedy";
+  } else if (e.target.innerText == "Drama") {
+    genreID = 18;
+    genreName.innerText = "Drama";
+  } else if (e.target.innerText == "Action") {
+    genreID = 28;
+    genreName.innerText = "Action";
+  } else if (e.target.innerText == "Romance") {
+    genreID = 10749;
+    genreName.innerText = "Romance";
+  } else if (e.target.innerText == "Fantasy") {
+    genreID = 14;
+    genreName.innerText = "Fantasy";
+  } else if (e.target.innerText == "Animation") {
+    genreID = 16;
+    genreName.innerText = "Animation";
+  }
+  fetchGenreData();
 });
