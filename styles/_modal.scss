@@ -26,55 +26,64 @@
 //       border: 1px solid darkcyan;
 //    }
 // }
-.movie-modal {
-   &.hidden {
-      display: none;
-   }
-   .movie-modal-container {
-      position: relative;
-      border: 2px solid red;
-      display: flex;
-      flex-grow: 1;
+
+.modal-wraper {
+   width: 100%;
+   height: 100%;
+   position: fixed;
+   top: 0;
+   left: 0;
+   background: rgba(0, 0, 0, 0.4);
+   z-index: 11;
+   .movie-modal {
       width: 752px;
       height: 526px;
-      padding: 70px;
-      gap: 50px;
-      margin: 0 auto;
-      background: rgba(0, 0, 0, 0.5);
-      .movie-modal-img {
-         height: 100%;
-         border: 2px solid red;
-         width: 234px;
-         height: 351px;
-         img {
-            width: 100%;
-         }
-      }
-      .movie-modal-text {
-         height: 100%;
-         width: 292px;
-         border: 2px solid red;
-         flex-grow: 1;
-         * {
-            margin-bottom: 10px;
-         }
-         .movie-modal-title {
-            color: red;
-            text-transform: uppercase;
-            font-weight: bold;
-            margin-bottom: 10px;
-         }
-         .movie-modal-genres {
-            text-transform: uppercase;
-         }
-         .movie-modal-overview {
-            margin-bottom: 10px;
-         }
-      }
+      position: relative;
+      background: #000;
+      margin: 87px auto;
+      justify-items: center;
       .close-btn {
          position: absolute;
-         left: 10px;
-         top: 10px;
+         padding: 15px;
+         z-index: 100;
+         cursor: pointer;
+      }
+
+      .movie-modal-container {
+         border: 2px solid red;
+         display: flex;
+         flex-grow: 1;
+         padding: 70px;
+         gap: 50px;
+         margin: 0 auto;
+         background: rgba(0, 0, 0, 0.5);
+         .movie-modal-img {
+            height: 100%;
+            border: 2px solid red;
+            width: 234px;
+            height: 351px;
+            img {
+               width: 100%;
+            }
+         }
+         .movie-modal-text {
+            height: 100%;
+            width: 292px;
+            border: 2px solid red;
+            flex-grow: 1;
+            .movie-modal-title {
+               color: rgb(255, 0, 0);
+               text-transform: uppercase;
+               font-weight: bold;
+               margin-bottom: 10px;
+            }
+            .movie-modal-genres {
+               text-transform: uppercase;
+            }
+            .movie-modal-overview {
+               margin-bottom: 10px;
+            }
+         }
       }
    }
 }
