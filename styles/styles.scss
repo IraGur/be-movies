@@ -93,7 +93,6 @@ h2 {
    .movies-by-genre {
       .genres-heading {
          text-align: center;
-         border: 1px solid white;
          .genres-menu ul {
             display: inline-flex;
             align-items: flex-start;
@@ -109,6 +108,9 @@ h2 {
                   }
                }
             }
+         }
+         hr {
+            background: red;
          }
       }
    }

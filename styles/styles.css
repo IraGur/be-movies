@@ -267,7 +267,6 @@ h2 {
 }
 .content-wrapper .movies-by-genre .genres-heading {
   text-align: center;
-  border: 1px solid white;
 }
 .content-wrapper .movies-by-genre .genres-heading .genres-menu ul {
   display: inline-flex;
@@ -284,4 +283,7 @@ h2 {
 .content-wrapper .movies-by-genre .genres-heading .genres-menu ul li :hover:after {
   width: 100%;
   left: 0;
+}
+.content-wrapper .movies-by-genre .genres-heading hr {
+  background: red;
 }/*# sourceMappingURL=styles.css.map */
