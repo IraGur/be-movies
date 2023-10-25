@@ -1,25 +1,3 @@
-/* I created classes for the hover on the slides and for the popup modal that appear when you click on a slide */
-
-///// For hover on the slides : (it just needs some css styling)
-// .card-hover (the big container for all the other classes below)
-// .movie-title
-// .movie-year
-// .movie-genres
-// .star (i don't think it needs styling)
-// .movie-rate
-
-////// For the movie popup modal :
-// .movie-modal (you need to create an empty div with this class in your HTML, I'm putting everything inside with JS)
-// .close-btn (for the close button)
-// .movie-modal-container (this is a div I put after the .close-btn and it's divided into two other div so that you can display in flex or grid)
-// .movie-modal-img (the first sub-div where the poster is)
-// .movie-modal-text (the second sub-div where I've put all the text inside the div that are written below)
-// .movie-modal-title
-// .movie-modal-year
-// .movie-modal-rate
-// .movie-modal-genres
-// .movie-modal-overview
-
 //////////////////////////////
 /* What I need everywhere */
 //////////////////////////////
@@ -166,17 +144,6 @@ let inputValue;
 const searchWrapper = document.querySelector(".search-results .swiper-wrapper");
 const swiperSearchDisplay = document.querySelector(".search-results");
 
-/* Creating the search swiper */
-const swiperSearch = new Swiper(".search-results", {
-  slidesPerView: 4,
-  spaceBetween: 19,
-
-  navigation: {
-    nextEl: ".search-button-next",
-    prevEl: ".search-button-prev",
-  },
-});
-
 /* The function to fetch data based on what the user typed in the search bar */
 const fetchSearchData = async () => {
   const res = await fetch(
@@ -198,6 +165,20 @@ const fetchSearchData = async () => {
       element.vote_average,
       element.overview
     );
+  });
+  /* Creating the search swiper */
+  const swiperSearch = new Swiper(".search-results", {
+    slidesPerView: 1,
+    breakpoints: {
+      768: { slidesPerView: 3 },
+      1440: { slidesPerView: 4 },
+    },
+    spaceBetween: 19,
+
+    navigation: {
+      nextEl: ".search-button-next",
+      prevEl: ".search-button-prev",
+    },
   });
 };
 
@@ -225,17 +206,6 @@ const latestWrapper = document.querySelector(
 );
 latestWrapper.innerHTML = "";
 
-/* Creating the latest swiper */
-const swiperLatest = new Swiper(".latest-releases-results", {
-  slidesPerView: 4,
-  spaceBetween: 19,
-
-  navigation: {
-    nextEl: ".latest-button-next",
-    prevEl: ".latest-button-prev",
-  },
-});
-
 /* The function to fetch the data from the latest movies */
 const fetchLatestData = async () => {
   const res = await fetch(
@@ -256,6 +226,20 @@ const fetchLatestData = async () => {
       element.overview
     );
   });
+  /* Creating the latest swiper */
+  const swiperLatest = new Swiper(".latest-releases-results", {
+    slidesPerView: 1,
+    breakpoints: {
+      768: { slidesPerView: 2.5 },
+      1024: { slidesPerView: 4 },
+    },
+    spaceBetween: 19,
+
+    navigation: {
+      nextEl: ".latest-button-next",
+      prevEl: ".latest-button-prev",
+    },
+  });
 };
 
 /* Calling the function because I want it to be here when we launch the page */
@@ -274,17 +258,6 @@ const genreName = document.querySelector(".genres-list");
 // that's the Comedy id
 let genreID = 35;
 genreWrapper.innerHTML = "";
-
-/* Creating the genre swiper */
-const swiperGenre = new Swiper(".movies-by-genre-results", {
-  slidesPerView: 4,
-  spaceBetween: 19,
-
-  navigation: {
-    nextEl: ".genres-button-next",
-    prevEl: ".genres-button-prev",
-  },
-});
 
 /* The function to fetch the data depending on the genre id */
 const fetchGenreData = async () => {
@@ -305,6 +278,20 @@ const fetchGenreData = async () => {
       element.vote_average,
       element.overview
     );
+  });
+  /* Creating the genre swiper */
+  const swiperGenre = new Swiper(".movies-by-genre-results", {
+    slidesPerView: 1,
+    breakpoints: {
+      768: { slidesPerView: 2.5 },
+      1024: { slidesPerView: 4 },
+    },
+    spaceBetween: 19,
+
+    navigation: {
+      nextEl: ".genres-button-next",
+      prevEl: ".genres-button-prev",
+    },
   });
 };
 
