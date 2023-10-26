@@ -259,6 +259,7 @@ const genreWrapper = document.querySelector(
   ".movies-by-genre-results .swiper-wrapper"
 );
 const genreMenu = document.querySelector(".genres-menu ul");
+const genreAllListItems = genreMenu.querySelectorAll("ul li");
 const genreName = document.querySelector(".genres-list");
 // that's the Comedy id
 let genreID = 35;
@@ -309,21 +310,33 @@ genreMenu.addEventListener("click", (e) => {
   if (e.target.innerText == "Comedy") {
     genreID = 35;
     genreName.innerText = "Comedy";
+    genreAllListItems.forEach((item) => item.classList.remove("red"));
+    e.target.classList.add("red");
   } else if (e.target.innerText == "Drama") {
     genreID = 18;
     genreName.innerText = "Drama";
+    genreAllListItems.forEach((item) => item.classList.remove("red"));
+    e.target.classList.add("red");
   } else if (e.target.innerText == "Action") {
     genreID = 28;
     genreName.innerText = "Action";
+    genreAllListItems.forEach((item) => item.classList.remove("red"));
+    e.target.classList.add("red");
   } else if (e.target.innerText == "Romance") {
     genreID = 10749;
     genreName.innerText = "Romance";
+    genreAllListItems.forEach((item) => item.classList.remove("red"));
+    e.target.classList.add("red");
   } else if (e.target.innerText == "Fantasy") {
     genreID = 14;
     genreName.innerText = "Fantasy";
+    genreAllListItems.forEach((item) => item.classList.remove("red"));
+    e.target.classList.add("red");
   } else if (e.target.innerText == "Animation") {
     genreID = 16;
     genreName.innerText = "Animation";
+    genreAllListItems.forEach((item) => item.classList.remove("red"));
+    e.target.classList.add("red");
   }
   fetchGenreData();
 });
