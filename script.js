@@ -131,6 +131,7 @@ let inputValue;
 
 const searchWrapper = document.querySelector(".search-results .swiper-wrapper");
 const swiperSearchDisplay = document.querySelector(".search-results");
+const searchContainer = document.querySelector(".search-result .container");
 
 /* The function to fetch data based on what the user typed in the search bar */
 const fetchSearchData = async () => {
@@ -181,6 +182,7 @@ searchInput.addEventListener("change", () => {
   searchInput.value = "";
   results.innerText = `Results for "${inputValue}"`;
   swiperSearchDisplay.style.display = "block";
+  searchContainer.classList.remove("hidden");
   fetchSearchData();
 });
 
