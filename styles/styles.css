@@ -171,18 +171,47 @@ footer .footer-container nav ul li :hover:after {
   width: 100%;
 }
 .modal-wraper .movie-modal .movie-modal-container .movie-modal-text {
-  height: 100%;
   width: 292px;
   border: 2px solid red;
   flex-grow: 1;
+  overflow: auto;
+  /*  .movie-modal-text:not(.movie-modal-title) {
+     display: flex;
+     justify-content: space-between;
+  } */
 }
 .modal-wraper .movie-modal .movie-modal-container .movie-modal-text .movie-modal-title {
-  color: rgb(255, 0, 0);
   text-transform: uppercase;
-  font-weight: bold;
-  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #cc0000;
+  letter-spacing: 0.6px;
 }
+.modal-wraper .movie-modal .movie-modal-container .movie-modal-text .movie-modal-rate {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.modal-wraper .movie-modal .movie-modal-container .movie-modal-text .movie-modal-rate svg {
+  height: 21px;
+  width: 21px;
+}
+.modal-wraper .movie-modal .movie-modal-container .movie-modal-text .movie-modal-rate span {
+  font-size: 20px;
+  font-weight: 700;
+  color: #cc0000;
+}
+.modal-wraper .movie-modal .movie-modal-container .movie-modal-text .movie-modal-rate,
 .modal-wraper .movie-modal .movie-modal-container .movie-modal-text .movie-modal-genres {
+  margin: 12px 0;
+}
+.modal-wraper .movie-modal .movie-modal-container .movie-modal-text .movie-modal-genres,
+.modal-wraper .movie-modal .movie-modal-container .movie-modal-text .movie-modal-year {
+  color: #e9e9e9;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.42px;
+  font-style: normal;
   text-transform: uppercase;
 }
 .modal-wraper .movie-modal .movie-modal-container .movie-modal-text .movie-modal-overview {
