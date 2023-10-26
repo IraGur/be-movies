@@ -52,14 +52,18 @@
       .movie-modal-container {
          border: 2px solid red;
          display: flex;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         padding: 10px;
          flex-grow: 1;
-         padding: 70px;
          gap: 50px;
          margin: 0 auto;
          background: rgba(0, 0, 0, 0.5);
          .movie-modal-img {
             height: 100%;
-            border: 2px solid red;
+            box-shadow: 0 0 1px 1px white;
             width: 234px;
             height: 351px;
             img {
