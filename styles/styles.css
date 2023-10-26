@@ -272,7 +272,9 @@ h2 {
   display: inline-flex;
   align-items: flex-start;
   gap: 33px;
-  margin: 50px 20px 0;
+  margin: 50px 20px 30px;
+  border-bottom: 1px solid white;
+  padding-bottom: 26px;
 }
 .content-wrapper .movies-by-genre .genres-heading .genres-menu ul li {
   padding-bottom: 3px;
@@ -283,7 +285,4 @@ h2 {
 .content-wrapper .movies-by-genre .genres-heading .genres-menu ul li :hover:after {
   width: 100%;
   left: 0;
-}
-.content-wrapper .movies-by-genre .genres-heading hr {
-  background: red;
 }/*# sourceMappingURL=styles.css.map */

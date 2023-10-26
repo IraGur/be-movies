@@ -97,7 +97,9 @@ h2 {
             display: inline-flex;
             align-items: flex-start;
             gap: 33px;
-            margin: 50px 20px 0;
+            margin: 50px 20px 30px;
+            border-bottom: 1px solid white;
+            padding-bottom: 26px;
             li {
                padding-bottom: 3px;
                :hover {
@@ -108,9 +110,6 @@ h2 {
                   }
                }
             }
-         }
-         hr {
-            background: red;
          }
       }
    }
