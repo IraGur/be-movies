@@ -36,7 +36,7 @@
    .movie-title {
       @include accent-font;
       color: #fff;
-      margin-top: 76px;
+      margin-top: 20px;
    }
    .movie-year {
       @include accent-font;
@@ -68,4 +68,8 @@
 
 .material-symbols-outlined {
    cursor: pointer;
+}
+
+.swiper-button-disabled {
+   color: rgb(118, 113, 113);
 }

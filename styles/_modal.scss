@@ -50,7 +50,7 @@
       }
 
       .movie-modal-container {
-         border: 2px solid red;
+         // border: 2px solid red;
          display: flex;
          position: absolute;
          top: 50%;
@@ -73,7 +73,7 @@
 
          .movie-modal-text {
             width: 292px;
-            border: 2px solid red;
+            // border: 2px solid red;
             flex-grow: 1;
             overflow: auto;
             /*  .movie-modal-text:not(.movie-modal-title) {

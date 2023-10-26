@@ -79,6 +79,10 @@ footer .footer-container nav ul li :hover:after {
   display: none;
 }
 
+header {
+  margin-bottom: 73px;
+}
+
 .swiper {
   width: 100%;
   height: 351px;
@@ -119,7 +123,7 @@ footer .footer-container nav ul li :hover:after {
   font-size: 20px;
   font-weight: 700;
   color: #fff;
-  margin-top: 76px;
+  margin-top: 20px;
 }
 .card-hover .movie-year {
   font-size: 20px;
@@ -154,6 +158,10 @@ footer .footer-container nav ul li :hover:after {
   cursor: pointer;
 }
 
+.swiper-button-disabled {
+  color: rgb(118, 113, 113);
+}
+
 .modal-wraper {
   width: 100%;
   height: 100%;
@@ -178,7 +186,6 @@ footer .footer-container nav ul li :hover:after {
   cursor: pointer;
 }
 .modal-wraper .movie-modal .movie-modal-container {
-  border: 2px solid red;
   display: flex;
   position: absolute;
   top: 50%;
@@ -201,7 +208,6 @@ footer .footer-container nav ul li :hover:after {
 }
 .modal-wraper .movie-modal .movie-modal-container .movie-modal-text {
   width: 292px;
-  border: 2px solid red;
   flex-grow: 1;
   overflow: auto;
   /*  .movie-modal-text:not(.movie-modal-title) {
@@ -266,9 +272,11 @@ a {
 }
 
 h2 {
+  margin-left: 32px;
   font-size: 16px;
   font-weight: 400;
   line-height: 19.36px;
+  margin-bottom: 10px;
 }
 
 .hidden {
@@ -326,14 +334,23 @@ h2 {
   background-color: #cc0000;
   color: #a5b1c3;
 }
+.content-wrapper #latest {
+  margin-bottom: 95px;
+}
+.content-wrapper .movies-by-genre {
+  margin-bottom: 110px;
+}
 .content-wrapper .movies-by-genre .genres-heading {
   text-align: center;
+}
+.content-wrapper .movies-by-genre .genres-heading h2 {
+  margin-left: 0;
+  margin-bottom: 46px;
 }
 .content-wrapper .movies-by-genre .genres-heading .genres-menu ul {
   display: inline-flex;
   align-items: flex-start;
   gap: 33px;
-  margin: 50px 20px 30px;
   border-bottom: 1px solid white;
   padding-bottom: 26px;
 }
