@@ -2,6 +2,7 @@
 @import "header-footer";
 @import "swiper";
 @import "modal";
+@import "registration";
 
 @import url("https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&family=Quicksand:wght@300;400;500;600;700&display=swap");
 
@@ -108,10 +109,15 @@ h2 {
          }
          .genres-menu ul {
             display: inline-flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 33px;
             border-bottom: 1px solid white;
             padding-bottom: 26px;
+            .red {
+               background-color: $color-accent;
+               padding: 7px 10px;
+               border-radius: 8px;
+            }
             li {
                padding-bottom: 3px;
                :hover {

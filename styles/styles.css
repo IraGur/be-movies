@@ -90,6 +90,7 @@ header {
 }
 .swiper .swiper-slide {
   position: relative;
+  cursor: pointer;
 }
 .swiper .swiper-slide img {
   -o-object-fit: contain;
@@ -349,10 +350,15 @@ h2 {
 }
 .content-wrapper .movies-by-genre .genres-heading .genres-menu ul {
   display: inline-flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 33px;
   border-bottom: 1px solid white;
   padding-bottom: 26px;
+}
+.content-wrapper .movies-by-genre .genres-heading .genres-menu ul .red {
+  background-color: #cc0000;
+  padding: 7px 10px;
+  border-radius: 8px;
 }
 .content-wrapper .movies-by-genre .genres-heading .genres-menu ul li {
   padding-bottom: 3px;
