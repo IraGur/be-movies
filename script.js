@@ -131,6 +131,7 @@ let inputValue;
 
 const searchWrapper = document.querySelector(".search-results .swiper-wrapper");
 const swiperSearchDisplay = document.querySelector(".search-results");
+const searchContainer = document.querySelector(".search-result .container");
 
 /* The function to fetch data based on what the user typed in the search bar */
 const fetchSearchData = async () => {
@@ -140,7 +141,6 @@ const fetchSearchData = async () => {
   );
   const data = await res.json();
   const results = data.results;
-  console.log(results);
   searchWrapper.innerHTML = "";
   // Using the SUPER FUNCTION for each element in the results to create the slides and everything
   results.forEach((element) => {
@@ -181,6 +181,7 @@ searchInput.addEventListener("change", () => {
   searchInput.value = "";
   results.innerText = `Results for "${inputValue}"`;
   swiperSearchDisplay.style.display = "block";
+  searchContainer.classList.remove("hidden");
   fetchSearchData();
 });
 
@@ -202,7 +203,6 @@ const fetchLatestData = async () => {
   );
   const data = await res.json();
   const results = data.results;
-  console.log(results);
   results.forEach((element) => {
     swiperSlides(
       latestWrapper,
@@ -256,7 +256,6 @@ const fetchGenreData = async () => {
   );
   const data = await res.json();
   const results = data.results;
-  console.log(results);
   results.forEach((element) => {
     swiperSlides(
       genreWrapper,
@@ -322,4 +321,37 @@ genreMenu.addEventListener("click", (e) => {
     e.target.classList.add("red");
   }
   fetchGenreData();
+});
+
+//////////////////////////////
+/* REGISTER / SIGNIN MODAL */
+//////////////////////////////
+
+const navBarHeader = document.querySelector("header .navbar ul");
+const navBarFooter = document.querySelector("footer .navbar ul");
+const signinModal = document.querySelector(".signin-modal");
+const loginButton = signinModal.querySelector(".login-btn");
+const signinButton = signinModal.querySelector(".signin");
+
+/* Opening and closing the signin modal */
+navBarHeader.addEventListener("click", (e) => {
+  if (e.target.innerText == "register" || e.target.innerText == "sign in") {
+    signinModal.classList.remove("hidden");
+
+    signinModal.querySelector(".close-btn").addEventListener("click", () => {
+      signinModal.classList.add("hidden");
+    });
+  }
+});
+
+/* adding red when we click login button */
+loginButton.addEventListener("click", () => {
+  loginButton.classList.add("red");
+  signinButton.classList.remove("red");
+});
+
+/* adding red when we click signin button */
+signinButton.addEventListener("click", () => {
+  signinButton.classList.add("red");
+  loginButton.classList.remove("red");
 });
