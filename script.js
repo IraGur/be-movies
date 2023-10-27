@@ -242,7 +242,7 @@ const genreWrapper = document.querySelector(
   ".movies-by-genre-results .swiper-wrapper"
 );
 const genreMenu = document.querySelector(".genres-menu ul");
-const genreAllListItems = genreMenu.querySelectorAll("ul li");
+const genreAllListItems = genreMenu.querySelectorAll("ul li a");
 const genreName = document.querySelector(".genres-list");
 // that's the Comedy id
 let genreID = 35;
@@ -327,31 +327,31 @@ genreMenu.addEventListener("click", (e) => {
 /* REGISTER / SIGNIN MODAL */
 //////////////////////////////
 
-const navBarHeader = document.querySelector("header .navbar ul");
-const navBarFooter = document.querySelector("footer .navbar ul");
-const signinModal = document.querySelector(".signin-modal");
-const loginButton = signinModal.querySelector(".login-btn");
-const signinButton = signinModal.querySelector(".signin");
+// const navBarHeader = document.querySelector("header .navbar ul");
+// const navBarFooter = document.querySelector("footer .navbar ul");
+// const signinModal = document.querySelector(".signin-modal");
+// const loginButton = signinModal.querySelector(".login-btn");
+// const signinButton = signinModal.querySelector(".signin");
 
-/* Opening and closing the signin modal */
-navBarHeader.addEventListener("click", (e) => {
-  if (e.target.innerText == "register" || e.target.innerText == "sign in") {
-    signinModal.classList.remove("hidden");
+// /* Opening and closing the signin modal */
+// navBarHeader.addEventListener("click", (e) => {
+//   if (e.target.innerText == "register" || e.target.innerText == "sign in") {
+//     signinModal.classList.remove("hidden");
 
-    signinModal.querySelector(".close-btn").addEventListener("click", () => {
-      signinModal.classList.add("hidden");
-    });
-  }
-});
+//     signinModal.querySelector(".close-btn").addEventListener("click", () => {
+//       signinModal.classList.add("hidden");
+//     });
+//   }
+// });
 
-/* adding red when we click login button */
-loginButton.addEventListener("click", () => {
-  loginButton.classList.add("red");
-  signinButton.classList.remove("red");
-});
+// /* adding red when we click login button */
+// loginButton.addEventListener("click", () => {
+//   loginButton.classList.add("red");
+//   signinButton.classList.remove("red");
+// });
 
-/* adding red when we click signin button */
-signinButton.addEventListener("click", () => {
-  signinButton.classList.add("red");
-  loginButton.classList.remove("red");
-});
+// /* adding red when we click signin button */
+// signinButton.addEventListener("click", () => {
+//   signinButton.classList.add("red");
+//   loginButton.classList.remove("red");
+// });
