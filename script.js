@@ -333,6 +333,9 @@ const siginWrapper = document.querySelector(".signin-wraper");
 const signinModal = document.querySelector(".signin-modal");
 const loginButton = signinModal.querySelector(".login-button");
 const signinButton = signinModal.querySelector(".signup-button");
+const loginSubmit = signinModal.querySelector(".bottom-btn");
+const username = signinModal.querySelector(".username");
+const password = signinModal.querySelector(".password");
 
 /* Opening and closing the signin modal with header buttons */
 navBarHeader.addEventListener("click", (e) => {
@@ -366,4 +369,11 @@ loginButton.addEventListener("click", () => {
 signinButton.addEventListener("click", () => {
   signinButton.classList.add("red");
   loginButton.classList.remove("red");
+});
+
+/* Console log the data entered when the user submit */
+loginSubmit.addEventListener("click", () => {
+  if (username && password) {
+    console.log({ username: username.value, password: password.value });
+  }
 });
