@@ -1,0 +1,25 @@
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   list-style: none;
+}
+body {
+   background: #191b20;
+   font-family: $primary-font;
+   overflow-x: hidden;
+}
+a {
+   text-decoration: none;
+   color: inherit;
+}
+h2 {
+   margin-left: 32px;
+   @include small-font;
+   line-height: 19.36px;
+   margin-bottom: 10px;
+}
+
+.hidden {
+   display: none;
+}

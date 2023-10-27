@@ -65,14 +65,37 @@
             </div>
         </div>
 
-        <!------------------------------------------------REGISTRATION------------------------------------------------>
+        <!---------------------------------------- REGISTER / SIGNIN MODAL--------------------------------------->
 
-        <div class="registeration hidden">
-            <div class="movie-modal">
+        <!-- /* REGISTER / SIGNIN MODAL */
+//////////////////////////////
+
+const signinModal = document.querySelector(".signin-modal");
+const loginButton = signinModal.querySelector(".login-btn");
+const signinButton = signinModal.querySelector(".signin"); 
+
+-->
+
+        <div class="signin-wraper hidden"> <!-- hidden -->
+            <div class="signin-modal">
+                <div class="close-btn"></div>
+                <div class="signin-modal-container">
+                    <div class="button-div">
+                        <button type="submit" class="signup-button red">Signup</button>
+                        <button type="submit" class="login-button red">Login</button>
+                    </div>
+                    <input type="text" placeholder="Username" class="username" required>
+                    <input type="password" placeholder="Password" class="password" required>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                    <button type="submit" class="login-button bottom-btn red">Login</button>
+                    <div class="form-link"><a href="#" class="forgot-password">Forgot password?</a></div>
+                    <div class="form-link"><span>Not a member yet?</span><a href="#">Sign up</a></div>
+                </div>
             </div>
         </div>
 
-        <!-- red button class  -->
         <!------------------------------------------------LATEST------------------------------------------------>
 
         <div class="latest-release section" id="latest">
@@ -100,7 +123,7 @@
                 <h2>Movies by genre</h2>
                 <div class="genres-menu">
                     <ul>
-                        <li class="red"><a>Comedy</a></li>
+                        <li><a class="red">Comedy</a></li>
                         <li><a>Drama</a></li>
                         <li><a>Action</a></li>
                         <li><a>Romance</a></li>
