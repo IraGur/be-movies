@@ -327,31 +327,43 @@ genreMenu.addEventListener("click", (e) => {
 /* REGISTER / SIGNIN MODAL */
 //////////////////////////////
 
-// const navBarHeader = document.querySelector("header .navbar ul");
-// const navBarFooter = document.querySelector("footer .navbar ul");
-// const signinModal = document.querySelector(".signin-modal");
-// const loginButton = signinModal.querySelector(".login-btn");
-// const signinButton = signinModal.querySelector(".signin");
+const navBarHeader = document.querySelector("header .navbar ul");
+const navBarFooter = document.querySelector("footer .navbar ul");
+const siginWrapper = document.querySelector(".signin-wraper");
+const signinModal = document.querySelector(".signin-modal");
+const loginButton = signinModal.querySelector(".login-button");
+const signinButton = signinModal.querySelector(".signup-button");
 
-// /* Opening and closing the signin modal */
-// navBarHeader.addEventListener("click", (e) => {
-//   if (e.target.innerText == "register" || e.target.innerText == "sign in") {
-//     signinModal.classList.remove("hidden");
+/* Opening and closing the signin modal with header buttons */
+navBarHeader.addEventListener("click", (e) => {
+  if (e.target.innerText == "REGISTER" || e.target.innerText == "SIGN IN") {
+    siginWrapper.classList.remove("hidden");
 
-//     signinModal.querySelector(".close-btn").addEventListener("click", () => {
-//       signinModal.classList.add("hidden");
-//     });
-//   }
-// });
+    signinModal.querySelector(".close-btn").addEventListener("click", () => {
+      siginWrapper.classList.add("hidden");
+    });
+  }
+});
 
-// /* adding red when we click login button */
-// loginButton.addEventListener("click", () => {
-//   loginButton.classList.add("red");
-//   signinButton.classList.remove("red");
-// });
+/* Opening and closing the signin modal with footer buttons */
+navBarFooter.addEventListener("click", (e) => {
+  if (e.target.innerText == "REGISTER" || e.target.innerText == "SIGN IN") {
+    siginWrapper.classList.remove("hidden");
 
-// /* adding red when we click signin button */
-// signinButton.addEventListener("click", () => {
-//   signinButton.classList.add("red");
-//   loginButton.classList.remove("red");
-// });
+    signinModal.querySelector(".close-btn").addEventListener("click", () => {
+      siginWrapper.classList.add("hidden");
+    });
+  }
+});
+
+/* adding red when we click login button */
+loginButton.addEventListener("click", () => {
+  loginButton.classList.add("red");
+  signinButton.classList.remove("red");
+});
+
+/* adding red when we click signin button */
+signinButton.addEventListener("click", () => {
+  signinButton.classList.add("red");
+  loginButton.classList.remove("red");
+});
