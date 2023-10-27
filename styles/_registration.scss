@@ -95,6 +95,7 @@
             margin-bottom: 15px;
             display: flex;
             align-items: center;
+
             input {
                width: 18px;
                height: 18px;
@@ -102,7 +103,10 @@
             }
             #chkb {
                accent-color: $color-accent;
-               border-radius: 25%;
+               border-radius: 50%;
+            }
+            input[type="checkbox"] {
+               clip-path: circle(50% at 50% 50%);
             }
          }
 

@@ -419,7 +419,11 @@ h2 {
 }
 .signin-wraper .signin-modal .signin-modal-container .checkbox #chkb {
   accent-color: #cc0000;
-  border-radius: 25%;
+  border-radius: 50%;
+}
+.signin-wraper .signin-modal .signin-modal-container .checkbox input[type=checkbox] {
+  -webkit-clip-path: circle(50% at 50% 50%);
+          clip-path: circle(50% at 50% 50%);
 }
 .signin-wraper .signin-modal .signin-modal-container .bottom-btn {
   width: 288px;
