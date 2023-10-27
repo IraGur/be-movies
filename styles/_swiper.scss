@@ -6,6 +6,9 @@
    .swiper-slide {
       position: relative;
       cursor: pointer;
+      .material-symbols-outlined {
+         font-weight: 700;
+      }
    }
    .swiper-slide img {
       object-fit: contain;

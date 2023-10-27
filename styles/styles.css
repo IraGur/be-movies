@@ -118,7 +118,7 @@ h2 {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .swiper {
@@ -129,6 +129,9 @@ h2 {
 .swiper .swiper-slide {
   position: relative;
   cursor: pointer;
+}
+.swiper .swiper-slide .material-symbols-outlined {
+  font-weight: 700;
 }
 .swiper .swiper-slide img {
   -o-object-fit: contain;
@@ -293,7 +296,6 @@ h2 {
 }
 
 .signin-wraper {
-  border: 2px solid blue;
   width: 100%;
   height: 100%;
   position: fixed;
@@ -302,8 +304,10 @@ h2 {
   background: rgba(0, 0, 0, 0.4);
   z-index: 11;
 }
+.signin-wraper button {
+  cursor: pointer;
+}
 .signin-wraper .signin-modal {
-  border: 2px solid green;
   width: 410px;
   height: 608px;
   position: relative;
@@ -317,16 +321,12 @@ h2 {
   z-index: 100;
   cursor: pointer;
   color: #fff;
-  font-weight: 300;
-}
-.signin-wraper .signin-modal .material-symbols-outlined {
-  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-weight: 100;
 }
 .signin-wraper .signin-modal .signin-modal-container {
   outline-style: none;
   width: 100%;
   height: 100%;
-  border: 2px solid red;
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -338,19 +338,22 @@ h2 {
   margin: 0 auto;
   background: #000;
 }
+.signin-wraper .signin-modal .signin-modal-container * {
+  border: none;
+}
 .signin-wraper .signin-modal .signin-modal-container .button-div {
   width: 288px;
   height: 54px;
   text-transform: uppercase;
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
 }
 .signin-wraper .signin-modal .signin-modal-container .button-div .signup-button,
 .signin-wraper .signin-modal .signin-modal-container .button-div .login-button {
   width: 144px;
   height: 54px;
   text-align: center;
-  cursor: pointer;
   color: #fff;
   font-family: Inria Sans;
   font-size: 24px;
@@ -361,6 +364,11 @@ h2 {
   text-transform: uppercase;
   border: none;
   outline-style: none;
+  background: transparent;
+}
+.signin-wraper .signin-modal .signin-modal-container .button-div .signup-button:not(.red),
+.signin-wraper .signin-modal .signin-modal-container .button-div .login-button:not(.red) {
+  box-shadow: 0 0 1px 1px white;
 }
 .signin-wraper .signin-modal .signin-modal-container .button-div .signup-button {
   border-top-left-radius: 7px;
@@ -407,8 +415,11 @@ h2 {
 .signin-wraper .signin-modal .signin-modal-container .checkbox input {
   width: 18px;
   height: 18px;
-  border-radius: 4px;
-  background: #fff;
+  margin-right: 9px;
+}
+.signin-wraper .signin-modal .signin-modal-container .checkbox #chkb {
+  accent-color: #cc0000;
+  border-radius: 25%;
 }
 .signin-wraper .signin-modal .signin-modal-container .bottom-btn {
   width: 288px;
@@ -423,6 +434,22 @@ h2 {
   line-height: normal;
   letter-spacing: 0.6px;
   text-transform: uppercase;
+}
+.signin-wraper .signin-modal .signin-modal-container .form-link {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+}
+.signin-wraper .signin-modal .signin-modal-container .form-link a {
+  color: #cc0000;
+  margin-right: 4px;
+}
+.signin-wraper .signin-modal .signin-modal-container .form-link span {
+  letter-spacing: 1px;
 }
 
 .content-wrapper {
