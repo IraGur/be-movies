@@ -301,14 +301,13 @@ h2 {
   left: 0;
   background: rgba(0, 0, 0, 0.4);
   z-index: 11;
-  color: brown;
 }
 .signin-wraper .signin-modal {
   border: 2px solid green;
-  width: 752px;
-  height: 526px;
+  width: 410px;
+  height: 608px;
   position: relative;
-  background: aquamarine;
+  background: #000;
   margin: 87px auto;
   justify-items: center;
 }
@@ -317,8 +316,16 @@ h2 {
   padding: 15px;
   z-index: 100;
   cursor: pointer;
+  color: #fff;
+  font-weight: 300;
+}
+.signin-wraper .signin-modal .material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
 }
 .signin-wraper .signin-modal .signin-modal-container {
+  outline-style: none;
+  width: 100%;
+  height: 100%;
   border: 2px solid red;
   display: flex;
   flex-direction: column;
@@ -326,11 +333,96 @@ h2 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 10px;
-  flex-grow: 1;
-  gap: 50px;
+  padding: 60px;
+  gap: 30px;
   margin: 0 auto;
-  background: white;
+  background: #000;
+}
+.signin-wraper .signin-modal .signin-modal-container .button-div {
+  width: 288px;
+  height: 54px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+}
+.signin-wraper .signin-modal .signin-modal-container .button-div .signup-button,
+.signin-wraper .signin-modal .signin-modal-container .button-div .login-button {
+  width: 144px;
+  height: 54px;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+  font-family: Inria Sans;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.72px;
+  text-transform: uppercase;
+  border: none;
+  outline-style: none;
+}
+.signin-wraper .signin-modal .signin-modal-container .button-div .signup-button {
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+.signin-wraper .signin-modal .signin-modal-container .button-div .login-button {
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+.signin-wraper .signin-modal .signin-modal-container .button-div .red {
+  background-color: #cc0000;
+  color: #fff;
+}
+.signin-wraper .signin-modal .signin-modal-container input {
+  width: 288px;
+  height: 44px;
+  outline-style: none;
+  border-radius: 7px;
+  padding: 10px 20px;
+  font-size: 18px;
+}
+.signin-wraper .signin-modal .signin-modal-container input:focus::-moz-placeholder {
+  color: rgba(52, 63, 77, 0.5);
+}
+.signin-wraper .signin-modal .signin-modal-container input:focus::placeholder {
+  color: rgba(52, 63, 77, 0.5);
+}
+.signin-wraper .signin-modal .signin-modal-container input [type=text]:focus {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  color: black;
+}
+.signin-wraper .signin-modal .signin-modal-container .checkbox {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+.signin-wraper .signin-modal .signin-modal-container .checkbox input {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: #fff;
+}
+.signin-wraper .signin-modal .signin-modal-container .bottom-btn {
+  width: 288px;
+  height: 47px;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #cc0000;
+  font-family: Inria Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
 }
 
 .content-wrapper {
