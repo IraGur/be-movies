@@ -34,6 +34,12 @@ $color-grayish: #efefef;
    font-weight: 400;
    color: $color-primary;
 }
+@mixin mini-font {
+   font-family: $secondary-font;
+   font-size: 12px;
+   font-weight: 100;
+   color: $color-primary;
+}
 @mixin reg-btns {
    color: $color-primary;
    font-family: $primary-font;
