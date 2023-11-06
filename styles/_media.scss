@@ -32,19 +32,20 @@
          display: flex;
          flex-direction: column;
       }
+      a {
+         font-size: 14px;
+      }
    }
-   .menu:focus + .navbar,
-   .navbar:hover {
-      display: block;
+   .menu:focus + .navbar {
       right: 0;
    }
-   input {
+   #search {
       width: 200px !important;
       height: 40px !important;
       text-align: center !important;
       padding: 2px 5px !important;
    }
-   button {
+   .search-btn {
       width: 44px !important;
       height: 40px !important;
       text-align: center !important;
@@ -68,13 +69,13 @@
    .menu > .material-symbols-outlined {
       font-size: 24px;
    }
-   input {
-      max-width: 136px !important;
+   #search {
+      max-width: 176px !important;
       max-height: 33px !important;
       text-align: center !important;
       padding: 2px 5px !important;
    }
-   button {
+   .search-btn {
       width: 44px !important;
       height: 33px !important;
       text-align: center !important;
@@ -94,5 +95,39 @@
    h2 {
       @include mini-font;
       margin-top: 15px;
+   }
+   .movie-modal {
+      width: 500px !important;
+      height: 100% !important;
+      overflow: auto;
+      margin: 0 auto !important;
+
+      .movie-modal-container {
+         display: flex;
+         flex-direction: column;
+         align-items: center !important;
+         margin: 140px 0 !important;
+
+         .movie-modal-img {
+            height: 100%;
+            box-shadow: 0 0 1px 1px white;
+            width: 170px;
+            height: 290px;
+            img {
+               width: 100%;
+            }
+         }
+         .movie-modal-text {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            gap: 10px;
+            .movie-modal-rate {
+               display: flex;
+               flex-direction: column;
+            }
+         }
+      }
    }
 }
