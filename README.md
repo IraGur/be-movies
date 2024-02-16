@@ -1,6 +1,6 @@
 **Collaborative Work**
 
-- **JS by:** Irina Guranova
-- **HTML, CSS by:** Elodi Duval
+- **JS by:** Elodi Duval
+- **HTML, CSS by:** Irina Guranova
 
 # [be-movies](https://iragur.github.io/be-movies/)
